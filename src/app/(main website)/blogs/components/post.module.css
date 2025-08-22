@@ -1,0 +1,125 @@
+/* post.module.css */
+.postStyle {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333333;
+}
+
+.postStyle h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 2rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #002244;
+    color: #002244;
+}
+
+.postStyle h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    color: #002244;
+}
+
+.postStyle h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.8rem;
+    color: #002244;
+}
+
+.postStyle p {
+    margin-bottom: 1.2rem;
+    color: #444444;
+}
+
+.postStyle ul,
+.postStyle ol {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.8rem;
+}
+
+.postStyle li {
+    margin-bottom: 0.7rem;
+    position: relative;
+}
+
+.postStyle ul li::before {
+    content: "•";
+    color: #002244;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.postStyle a {
+    color: #0066cc;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.postStyle a:hover {
+    color: #002244;
+    text-decoration: none;
+}
+
+.postStyle strong {
+    color: #002244;
+    font-weight: 600;
+}
+
+.postStyle hr {
+    border: 0;
+    height: 1px;
+    /* background: linear-gradient(90deg, transparent, #002244, transparent); */
+    background-color: #a6cbf05d;
+    margin: 2.5rem 0;
+}
+
+/* Table Styles */
+.postStyle table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    display: table;
+    /* Ensure table layout */
+}
+
+.postStyle th {
+    background-color: #002244;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+}
+
+.postStyle td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.postStyle tr:last-child td {
+    border-bottom: none;
+}
+
+.postStyle tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.postStyle tr:hover {
+    background-color: #f0f7ff;
+}
+
+/* Responsive tables */
+@media (max-width: 768px) {
+    .postStyle table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
