@@ -64,6 +64,7 @@ function BookingDetails() {
     }
 
     console.log(booking)
+    console.log(booking?.status?.trip)
 
     return (
         <div className="bg-gray-100 min-h-screen">
@@ -71,7 +72,7 @@ function BookingDetails() {
                 <div className="flex mb-4 justify-between items-center w-full">
                     <h1 className="text-black font-semibold text-xl">Booking Details</h1>
                     <div className="flex items-center justify-center gap-3">
-                        {!booking?.status?.driver &&
+                        {booking?.status?.driver === 'not assigned' &&
                             <Button
                                 variant={"outline"}
                                 className={
@@ -84,7 +85,7 @@ function BookingDetails() {
                             </Button>
                         }
 
-                        {!booking?.status?.trip === 'Completed' || !booking?.extraCharge &&
+                        {booking?.status?.trip !== 'Completed' &&
                             <Button
                                 variant={"outline"}
                                 className={

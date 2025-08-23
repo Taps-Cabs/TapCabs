@@ -35,20 +35,21 @@ function UpdateBookingDialog({ open, onOpenChange, booking, fetchOneBookingDetai
     const handleUpdateBooking = async () => {
         if (!selectedDriverId) return;
 
-        let extraCharge = 0
-        if (extraKm)
-            extraCharge += (+extraKm) * (+booking?.cab?.basePrice);
-        if (extraHour)
-            extraCharge += (+extraHour) * (+booking?.cab?.extraHours);
+        const km = parseFloat(extraKm) || 0;
+        const hr = parseFloat(extraHour) || 0;
 
-        //updating gst amount
-        const newGST = booking?.gstAmount + (+extraCharge * 5 / 100)
+        let extraCharge = 0;
+        if (km) extraCharge += km * (+booking?.cab?.basePrice);
+        if (hr) extraCharge += hr * (+booking?.cab?.extraHours);
 
-        //gst on extra charge
-        const extraChargeGST = (+extraCharge * 5 / 100)
+        // gst on extra charge (2 decimals)
+        const extraChargeGST = parseFloat(((extraCharge * 5) / 100).toFixed(2));
 
-        // adding extra charge + gst on extra charge
-        const newTotal = booking?.totalAmount + +extraCharge + extraChargeGST
+        // updating gst amount (2 decimals)
+        const newGST = parseFloat((booking?.gstAmount + extraChargeGST).toFixed(2));
+
+        // adding extra charge + gst on extra charge (2 decimals)
+        const newTotal = parseFloat((booking?.totalAmount + extraCharge + extraChargeGST).toFixed(2));
 
         setAssigning(true);
         try {
@@ -222,7 +223,7 @@ function UpdateBookingDialog({ open, onOpenChange, booking, fetchOneBookingDetai
                     <Select
                         value={selectedDriverId}
                         onValueChange={setSelectedDriverId}
-                        disabled={isLoading || assigning || booking?.status?.driver}
+                        disabled={isLoading || assigning}
                     >
                         <SelectTrigger className="bg-white w-full">
                             <SelectValue
@@ -274,8 +275,8 @@ function UpdateBookingDialog({ open, onOpenChange, booking, fetchOneBookingDetai
                                 <input className='w-full bg-white rounded-md p-2 '
                                     type="number"
                                     name="extraKm"
-                                    onChange={(e) => setExtraKm(e.target.value)}
-                                    readOnly={booking?.status?.trip === TRIP_STATUS.completed
+                                    onChange={(e) => setExtraKm(e.target.value ? parseFloat(e.target.value) : '')}
+                                    disabled={booking?.status?.trip === TRIP_STATUS.completed
                                         || isLoading || assigning || booking?.extraKm}
                                     value={extraKm}
                                     placeholder='Extra Kilometers Traveled'
@@ -288,7 +289,7 @@ function UpdateBookingDialog({ open, onOpenChange, booking, fetchOneBookingDetai
                                     <input className='bg-white rounded-md p-2 w-full'
                                         type="number"
                                         name="extraHr"
-                                        onChange={(e) => setExtraHour(e.target.value)}
+                                        onChange={(e) => setExtraHour(e.target.value ? parseFloat(e.target.value) : '')}
                                         readOnly={isLoading || assigning || booking?.extraHours ||
                                             booking?.status?.trip === TRIP_STATUS.completed}
                                         value={extraHour}
