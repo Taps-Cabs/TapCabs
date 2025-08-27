@@ -16,7 +16,7 @@ function Pickup({ register, setValue, tripType, pickupCities, setPickupCities, s
   const [open, setOpen] = useState(false)
   const [selectedCity, setSelectedCity] = useState(null)
 
-
+  console.log(selectedCity)
 
   const fetchPickupCities = async () => {
     setLoading(true)
@@ -60,7 +60,6 @@ function Pickup({ register, setValue, tripType, pickupCities, setPickupCities, s
     if (sCity) {
       setSelectedCity(sCity)
     }
-
   }, [tripType, sCity])
   // console.log("Pikup Cities", pickupCities);
 
@@ -96,7 +95,7 @@ function Pickup({ register, setValue, tripType, pickupCities, setPickupCities, s
                   !selectedCity && "text-gray-400"
                 )}
               >
-                {selectedCity?.name || "Select Pickup City"}
+                {selectedCity?.name || selectedCity || "Select Pickup City"}
                 <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </button>
             </PopoverTrigger>

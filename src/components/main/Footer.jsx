@@ -91,9 +91,12 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="mt-12 border-t border-white/10 pt-6">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                        <p className="text-sm text-gray-400">
-                            © 2025 <span className="font-bold text-white">Taps Cabs</span>. All rights reserved.
-                        </p>
+                        <div className='space-x-3 flex items-center justify-center'>
+                            <p className="text-sm text-gray-400">
+                                © 2025 <span className="font-bold text-white">Taps Cabs</span>. All rights reserved.
+                            </p>
+                            <Link href={'/sitemap.xml'}><p className="text-sm text-gray-400 hover:text-white font-semibold underline">Sitemap</p></Link>
+                        </div>
                         <p className="text-sm text-gray-400">
                             Designed by{' '}
                             <Link
