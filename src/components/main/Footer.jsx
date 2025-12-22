@@ -32,7 +32,7 @@ export default function Footer() {
                             <MapPin className="mt-1 text-blue-200 group-hover:text-white transition-colors" />
                             <div className="text-gray-200 group-hover:text-white transition-colors">
                                 <p>C23 Malviya Nagar moradabad 244001,</p>
-                                <p>Near shiv Durga temple.</p>
+                                <p>Near shiv Durga temple</p>
                             </div>
                         </div>
                         <div className="flex items-center space-x-3 group">
