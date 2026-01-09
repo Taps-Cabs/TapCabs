@@ -27,6 +27,17 @@ export default function Footer() {
                                 <p>Delhi-UP border, Ghaziabad</p>
                             </div>
                         </div>
+<div className="flex items-start space-x-3 group">
+    <MapPin className="mt-1 text-blue-200 group-hover:text-white transition-colors" />
+    <div className="text-gray-200 group-hover:text-white transition-colors">
+        <p> 
+C 23 Malviya Nagar, Moradabad
+</p>
+        <p> Uttar Pradesh 244001</p>
+    </div>
+</div>
+
+                        
                         <div className="flex items-center space-x-3 group">
                             <Phone className="text-blue-200 group-hover:text-white transition-colors" />
                             <p className="text-gray-200 group-hover:text-white transition-colors">+91 72487 72488</p>
