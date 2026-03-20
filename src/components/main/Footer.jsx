@@ -100,7 +100,7 @@ export default function Footer() {
                         <p className="text-sm text-gray-400">
                             Designed by{' '}
                             <Link
-                                href="https://matchbestsoftware.com/"
+                                href="https://www.browndevs.com"
                                 target="_blank"
                                 className="font-medium text-white hover:text-blue-300 transition-colors"
                             >
