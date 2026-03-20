@@ -104,7 +104,7 @@ export default function Footer() {
                                 target="_blank"
                                 className="font-medium text-white hover:text-blue-300 transition-colors"
                             >
-                                Matchbest Software
+                                Brown Devs
                             </Link>
                         </p>
                     </div>
